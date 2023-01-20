@@ -1,0 +1,14 @@
+<div>
+  <mat-list role="list">
+    <mat-list-item *ngFor="let student of students" role="listitem">
+      {{student.name}} {{student.lastName}} -
+      Fecha de inicio: {{ student.startDate | date: 'dd/MM/yyyy'}} -
+      Estado:
+      <div [ngSwitch]="student.payment">
+        <div *ngSwitchCase=true [ngClass]="'active'">Sin deudas</div>
+        <div *ngSwitchCase=false [ngClass]="'inactive'">Impago</div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
